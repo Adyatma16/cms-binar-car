@@ -37,17 +37,6 @@ const CarList = (props) => {
     })
   }, [])
 
-  // useEffect(() => {
-  //   Services().put('https://bootcamp-rent-cars.herokuapp.com/admin/v2/car', {
-  //     headers: {
-  //       access_token: `${localStorage.setItem("ACCESS_TOKEN")}`
-  //     }
-  //   }).then(result=>{
-  //     console.log(result)
-  //     setData(result)
-  //   })
-  // }, [])
-
   const handleDeleteCarData = (idCar) => {
     axios.delete('https://bootcamp-rent-cars.herokuapp.com/admin/car/'+idCar, {
       headers: {
@@ -65,19 +54,7 @@ const CarList = (props) => {
   }
 
   const handleEditCarData = (idCar) => {
-    axios.put('https://bootcamp-rent-cars.herokuapp.com/admin/car/'+idCar, {
-      headers: {
-        access_token: `${localStorage.setItem("ACCESS_TOKEN")}`
-      },
-      data: {
-        id: idCar
-      }
-    })
-    .then(response => {
-      console.log(response)
-      window.location.replace('/add-car')
-    })
-    .catch(err => console.log(err.response.data))
+    navigate('/edit-car/' + idCar)
   }
 
   return (

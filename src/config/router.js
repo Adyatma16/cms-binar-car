@@ -19,6 +19,7 @@ export const privaterouting = (props) => {
         { index: true, path: '/home', element: <Home /> },
         { index: true, path: '/car-list', element: <CarList /> },
         { index: true, path: '/add-car', element: <AddNewCar /> },
+        { index: true, path: '/edit-car/:id', element: <AddNewCar /> },
         { index: true, path: '*', element: <Error404 /> },
     ]
 }
